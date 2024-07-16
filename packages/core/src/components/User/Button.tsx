@@ -1,16 +1,8 @@
 import React from "react";
 import { FormControl, FormControlLabel, FormLabel, Button as MaterialButton, Radio, RadioGroup } from "@material-ui/core";
 import { useNode } from "@craftjs/core";
+import { createReactMaterial } from '../../materials/index';
 
-
-export const Button = ({ size, variant, color, children }) => {
-  const { connectors: { connect, drag } } = useNode();
-  return (
-    <MaterialButton ref={ref => connect(drag(ref))} size={size} variant={variant} color={color} >
-      {children}
-    </MaterialButton>
-  )
-}
 const ButtonSettings = () => {
   const { actions: { setProp }, props } = useNode((node) => ({
     props: node.data.props
@@ -45,8 +37,13 @@ const ButtonSettings = () => {
     </div>
   )
 };
-
-Button.craft = {
+export const Button = createReactMaterial(({ size, variant, color, children }) => {
+  return (
+    <MaterialButton size={size} variant={variant} color={color} >
+      {children}
+    </MaterialButton>
+  )
+}, {
   props: {
     size: "small",
     variant: "contained",
@@ -56,4 +53,5 @@ Button.craft = {
   related: {
     settings: ButtonSettings
   }
-}
+})
+
