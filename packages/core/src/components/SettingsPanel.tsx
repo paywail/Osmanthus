@@ -21,7 +21,7 @@ export const SettingsPanel = () => {
     }
   });
   const { actions, selected } = all;
-  console.log('test-------->all, ----->', all);
+
   return (
     selected ? 
       <Box bgcolor="rgba(0, 0, 0, 0.06)" mt={2} px={2} py={2}>

@@ -1,3 +1,6 @@
+import * as _materials from '@osmanthus/materials';
+
+console.log('test-------->_materials, ----->', _materials);
 export const Framework = () => {
   return (
     <div className="flex">

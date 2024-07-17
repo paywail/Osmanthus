@@ -10,8 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "@osmanthus/materials": "workspace:*"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",
