@@ -5,9 +5,9 @@ export default defineConfig((options) => ({
   minify: false,
   entry: ['src/index.ts'],
   splitting: false,
-  sourcemap: false,
+  sourcemap: true,
   clean: true,
   format: ["esm"],
-  external: ["react", "react-dom", "@craftjs/core", "zustand", "antd", "lodash"],
+  external: ["react", "react-dom", "@craftjs/core", "@material-ui/core", "material-ui-color-picker", "@osmanthus/core"],
   dts: true,
 }))

@@ -17,8 +17,5 @@
   "dependencies": {
     "@osmanthus/core": "workspace:*",
     "react-contenteditable": "^3.3.7"
-  },
-  "peerDependencies": {
-    "react": "^18.0.0"
   }
 }
