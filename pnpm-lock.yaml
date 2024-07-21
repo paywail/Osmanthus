@@ -51,6 +51,12 @@ importers:
       '@osmanthus/materials':
         specifier: workspace:*
         version: link:../../packages/materials
+      copy-to-clipboard:
+        specifier: ^3.3.3
+        version: 3.3.3
+      lzutf8:
+        specifier: ^0.6.3
+        version: 0.6.3
     devDependencies:
       '@types/react':
         specifier: ^18.3.3
