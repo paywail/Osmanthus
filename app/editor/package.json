@@ -10,7 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@osmanthus/materials": "workspace:*"
+    "@osmanthus/materials": "workspace:*",
+    "copy-to-clipboard": "^3.3.3",
+    "lzutf8": "^0.6.3"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",
