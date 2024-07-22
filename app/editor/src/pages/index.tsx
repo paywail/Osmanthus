@@ -7,9 +7,7 @@ import { Editor, Frame, Element } from "@craftjs/core";
 const Index = () => {
   return (
     <div className='h-screen' >
-      <div style={{ margin: "0 auto", width: "1000px" }}>
-        <Framework />
-      </div >
+      <Framework />
     </div>
   );
 };
