@@ -9,7 +9,7 @@ import { createReactMaterial } from '@osmanthus/core';
 
 // Notice how CardTop and CardBottom do not specify the drag connector. This is because we won't be using these components as draggables; adding the drag handler would be pointless.
 
-const CardTop = createReactMaterial(({ children }) => {
+export const CardTop = createReactMaterial(({ children }) => {
   return (
     <div className="text-only">
       {children}
@@ -18,12 +18,12 @@ const CardTop = createReactMaterial(({ children }) => {
 }, {
   rules: {
     // Only accept Text
-    canMoveIn: (incomingNodes) => incomingNodes
+    // canMoveIn: (incomingNodes) => incomingNodes
   }
 })
 
 
-const CardBottom = createReactMaterial(({ children }) => {
+export const CardBottom = createReactMaterial(({ children }) => {
   return (
     <div className="button-only">
       {children}
@@ -32,7 +32,7 @@ const CardBottom = createReactMaterial(({ children }) => {
 }, {
   rules: {
     // Only accept Buttons
-    canMoveIn: (incomingNodes) => incomingNodes.every(incomingNode => incomingNode.data.type === Button)
+    // canMoveIn: (incomingNodes) => incomingNodes.every(incomingNode => incomingNode.data.type === Button)
   }
 })
 

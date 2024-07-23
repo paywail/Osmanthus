@@ -6,7 +6,7 @@ export const SettingsPanel = () => {
   const all = useEditor((state, query) => {
     const [currentNodeId] = state.events.selected;
     let selected;
-
+    console.log('test-------->currentNodeId, ----->', state);
     if (currentNodeId) {
       selected = {
         id: currentNodeId,
@@ -24,7 +24,7 @@ export const SettingsPanel = () => {
 
   return (
     selected ?
-      <Box bgcolor="rgba(0, 0, 0, 0.06)" mt={2} px={2} py={2}>
+      <Box bgcolor="rgba(0, 0, 0, 0.06)" mt={2} px={2} py={2} className=''>
         <Grid container direction="column" spacing={0}>
           <Grid item>
             <Box pb={2}>

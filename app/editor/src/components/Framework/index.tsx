@@ -14,26 +14,26 @@ const baseMaterials = Object.keys(_materials).map((key: any) => ({
   key,
   component: _materials[key as keyof typeof _materials]
 }));
-console.log('test-------->,baseMaterials ----->', baseMaterials);
 
 export const Framework = () => {
   return (
-    <Editor resolver={{ Container, Button, Card, Text }} >
-      <Toolbox />
-      <Frame>
-        <Element is={Container} padding={5} background="#eee" canvas>
-          <Card background={'yellowgreen'} />
+    <Editor resolver={{ ..._materials }} >
+      <Toolbox baseMaterials={baseMaterials} />
+      <div className='flex-1'>
+        <Frame >
+          <Element is={Container} padding={5} background="#eee" canvas>
+            {/* <Button size="small" variant="outlined" color={'#485dca'}>Click Me</Button>
+            <Card background={'yellowgreen'} /> */}
+            <Text size="small" text="Hi world!" />
+            {/* <Element is={Container} padding={5} background="pink" canvas> // Canvas Node of type Container, droppable
+              <Text size="small" text="It's me again!" />
+            </Element> */}
         </Element>
       </Frame>
+      </div>
+      <SettingsPanel />
     </Editor>
-
-
-
-
-
   )
-
-
 }
 
 //  <Typography variant="h5" align="center">A super simple page editor</Typography>
