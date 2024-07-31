@@ -57,6 +57,9 @@ importers:
 
   app/editor:
     dependencies:
+      '@osmanthus/core':
+        specifier: workspace:*
+        version: link:../../packages/core
       '@osmanthus/materials':
         specifier: workspace:*
         version: link:../../packages/materials

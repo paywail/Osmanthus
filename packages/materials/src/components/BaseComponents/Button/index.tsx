@@ -7,12 +7,15 @@ import type { ButtonProps } from "antd/es/button";
 import { buttonIcon } from '@/assets/icon'
 
 export const Button = createReactMaterial(
-  (props: ButtonProps, ref: any) => (
-    <MaterialButton type="default" ref={ref} {...props} >
-      {props.children || '默认按钮'}
-    </MaterialButton>
+  (props: ButtonProps, ref: any) => {
+    console.log('test-------->props, ----->', props);
+    return (
+      <MaterialButton type="default" ref={ref} {...props} >
+        {props.children || '默认按钮'}
+      </MaterialButton>
 
-  ),
+    )
+  },
   {
     displayName: "按钮",
     related: {

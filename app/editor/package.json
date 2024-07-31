@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@osmanthus/materials": "workspace:*",
+    "@osmanthus/core": "workspace:*",
     "copy-to-clipboard": "^3.3.3",
     "lzutf8": "^0.6.3"
   },

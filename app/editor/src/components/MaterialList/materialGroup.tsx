@@ -4,6 +4,7 @@ import { Flex, Typography, Button, Tag } from "antd";
 import _ from 'lodash';
 import { MaterialItem } from "./MaterialItem";
 import type { MaterialProps } from "./types";
+import { SmileOutlined } from "@ant-design/icons";
 
 interface IProps {
   groupList: MaterialProps["components"];
@@ -19,7 +20,7 @@ export const MaterialGroup: React.FC<IProps> = (props) => {
   }
 
   return (
-    <Flex vertical gap={12}>
+    <Flex vertical gap={12} className="w-80">
       <Flex justify="flex-start" gap={6}>
         <Typography.Text type="secondary">{props.groupName}</Typography.Text>
         {isEmpty ? null : (
@@ -29,7 +30,8 @@ export const MaterialGroup: React.FC<IProps> = (props) => {
         )}
       </Flex>
       <div>
-        {_.map(props.groupList, (value, key: string) => {
+        {props.groupList.map((item, index) => {
+          const { key, component: value } = item;
           const displayName = value.craft?.displayName;
           const { icon } = value.craft.related || {};
           const { useCanvas = false } = value.craft?.custom || {};
@@ -58,7 +60,7 @@ export const MaterialGroup: React.FC<IProps> = (props) => {
             />
           );
         })}
-    </div>
+      </div>
     </Flex >
   )
 };

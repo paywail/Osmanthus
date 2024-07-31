@@ -6,7 +6,7 @@ import { Editor, Frame, Element } from "@craftjs/core";
 
 const Index = () => {
   return (
-    <div className='h-screen flex justify-between' >
+    <div className='h-screen flex' >
       <Framework />
     </div>
   );
