@@ -6,7 +6,6 @@ export const SettingsPanel = () => {
   const all = useEditor((state, query) => {
     const [currentNodeId] = state.events.selected;
     let selected;
-    console.log('test-------->currentNodeId, ----->', state);
     if (currentNodeId) {
       selected = {
         id: currentNodeId,

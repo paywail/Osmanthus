@@ -8,7 +8,6 @@ import { buttonIcon } from '@/assets/icon'
 
 export const Button = createReactMaterial(
   (props: ButtonProps, ref: any) => {
-    console.log('test-------->props, ----->', props);
     return (
       <MaterialButton type="default" ref={ref} {...props} >
         {props.children || '默认按钮'}

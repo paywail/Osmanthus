@@ -1,25 +1,32 @@
 import React from 'react'
 import { useNode } from "@craftjs/core";
-import { FormControl, FormLabel, Slider } from "@material-ui/core";
+import { Form, Input, Slider } from 'antd';
 
 const TextSettings = () => {
-  const { actions: { setProp }, fontSize } = useNode((node) => ({
+  const [form] = Form.useForm();
+  const { actions: { setProp } } = useNode((node) => ({
     fontSize: node.data.props.fontSize
   }));
+  const handleChange = (changedValues: any, values: any) => {
+    const [key, value] = Object.entries(changedValues)[0];
+    setProp(props => props[key] = value);
+  }
 
   return (
-    <FormControl size="small" component="fieldset">
-      <FormLabel component="legend">Font size</FormLabel>
-      <Slider
-        value={fontSize || 7}
-        step={7}
-        min={1}
-        max={50}
-        onChange={(_, value) => {
-          setProp(props => props.fontSize = value);
-        }}
-      />
-    </FormControl>
+    <Form
+      form={form}
+      onValuesChange={handleChange}
+      style={{ maxWidth: 600 }}
+    >
+      <Form.Item name="text" label="按钮名字" >
+        <Input />
+      </Form.Item>
+      <Form.Item name="fontSize" label="字体大小" >
+        <Slider defaultValue={[20, 50]} />
+      </Form.Item>
+
+
+    </Form>
   )
 }
 export default TextSettings;
