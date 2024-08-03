@@ -2,13 +2,13 @@ import React from "react";
 import { PlusCircleFilled } from "@ant-design/icons";
 import { App, Flex, Typography } from "antd";
 
-export interface EmptySetterProps {
+export interface EmptyProps {
   children?: React.ReactNode;
   name?: string;
   onChange?: any;
 }
 
-export const EmptySetter: React.FC<EmptySetterProps> = ({
+export const Empty: React.FC<EmptyProps> = ({
   children,
   name,
   ...props
