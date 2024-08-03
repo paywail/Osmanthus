@@ -3,6 +3,7 @@ import { useNode } from "@craftjs/core";
 import ContentEditable from 'react-contenteditable'
 import TextSettings from "./setting";
 import { createReactMaterial } from '@osmanthus/core';
+import { textIcon } from "@/assets/icon";
 
 export const Text = createReactMaterial(({ text, fontSize }) => {
   const { connectors: { connect, drag }, actions: { setProp }, hasSelectedNode, hasDraggedNode } = useNode((state) => {
@@ -35,9 +36,12 @@ export const Text = createReactMaterial(({ text, fontSize }) => {
     text: "Hi",
     fontSize: 20
   },
+  displayName: "按钮",
   related: {
+    icon: () => <img height="100%" width="100%" src={textIcon} />,
     settings: TextSettings
-  }
+  },
+  
 })
 
 

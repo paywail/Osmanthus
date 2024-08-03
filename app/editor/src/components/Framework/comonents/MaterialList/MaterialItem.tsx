@@ -13,7 +13,7 @@ export const MaterialItem = React.forwardRef<
   IProps
 >((props, ref) => {
   return (
-    <Flex ref={ref} vertical align="center" gap={8} wrap="wrap">
+    <Flex ref={ref} vertical align="center" gap={8} wrap="wrap" className="cursor-pointer">
       <Flex justify="center" align="center" >
         {props.icon}
       </Flex>

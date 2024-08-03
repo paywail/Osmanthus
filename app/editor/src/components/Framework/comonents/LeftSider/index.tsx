@@ -1,21 +1,53 @@
-// components/Toolbox.js
-import React from "react";
-import { Box, Typography, Grid, Button as MaterialButton } from "@material-ui/core";
-import * as _materials from '@osmanthus/materials';
-import { useEditor, Element } from "@craftjs/core";
-import { Flex } from "antd";
+import React, { useState } from "react";
+import { SmallDashOutlined } from "@ant-design/icons";
+import _ from 'lodash';
+import './index.less';
+import { MaterialProps } from "../MaterialList/types";
+import { MaterialGroup } from "../MaterialList/MaterialGroup";
 
-const baseMaterials = Object.keys(_materials).map((key: any) => ({
-  key,
-  component: _materials[key as keyof typeof _materials]
-}));
-console.log('test-------->,baseMaterials ----->', baseMaterials);
+interface IProps {
+  groupList: MaterialProps["components"];
+  groupName: string;
+}
+export const LeftSider: React.FC<IProps> = (props) => {
+  const [activeTab, setActiveTab] = useState(0);
+  const SiderBarMap = [
+    {
+      id: '1',
+      name: '组件',
+      components: props.groupList,
+      icon: SmallDashOutlined,
+    }
+  ];
+  const onSideEnter = (activeIndex: number) => {
+    setActiveTab(activeIndex);
+  }
+  const onSideLeave = () => {
+    setActiveTab(-1);
+  }
+  const renderSideContent = (activeTab: number) => {
+    return (
+      <MaterialGroup groupList={SiderBarMap[activeTab].components} groupName={props.groupName} key={activeTab}/>
+    )
+  }
 
-export const Toolbox = () => {
-  const { connectors, query } = useEditor();
   return (
-    <Flex vertical>
-
-    </Flex>
+    <div className='sidebar'>
+      <ul className="sidebar-widgets">
+        {SiderBarMap.map((item, index) => {
+          return (
+            <li key={item.id} onClick={() => setActiveTab(index)}>
+              <span>{item.name}</span>
+            </li>
+          )
+        })}
+      </ul>
+      <div
+        className={ activeTab > -1 ? 'sidebar-content sidebar-content-show' : 'sidebar-content'
+        }
+      >
+        { activeTab > -1  && renderSideContent(activeTab)}
+      </div>
+    </div>
   )
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Chip, Grid, Typography, Button as MaterialButton, FormControl, FormLabel, Slider } from "@material-ui/core";
+import { Button } from 'antd';
 import { useEditor } from '@craftjs/core';
 
 export const SettingsPanel = () => {
@@ -23,33 +23,21 @@ export const SettingsPanel = () => {
 
   return (
     selected ?
-      <Box bgcolor="rgba(0, 0, 0, 0.06)" mt={2} px={2} py={2} className=''>
-        <Grid container direction="column" spacing={0}>
-          <Grid item>
-            <Box pb={2}>
-              <Grid container alignItems="center">
-                <Grid item xs><Typography variant="subtitle1">Selected</Typography></Grid>
-                <Grid item><Chip size="small" color="primary" label="Selected" /></Grid>
-              </Grid>
-            </Box>
-          </Grid>
-          {
-            selected.settings && React.createElement(selected.settings)
-          }
-          {
-            selected.isDeletable ? (
-              <MaterialButton
-                variant="contained"
-                color="default"
-                onClick={() => {
-                  actions.delete(selected.id);
-                }}
-              >
-                Delete
-              </MaterialButton>
-            ) : null
-          }
-        </Grid>
-      </Box> : null
+      <div >
+        {
+          selected.settings && React.createElement(selected.settings)
+        }
+        {
+          selected.isDeletable ? (
+            <Button
+              onClick={() => {
+                actions.delete(selected.id);
+              }}
+            >
+              Delete
+            </Button>
+          ) : null
+        }
+      </div> : null
   )
 }
