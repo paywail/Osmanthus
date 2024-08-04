@@ -27,7 +27,7 @@ export const LeftSider: React.FC<IProps> = (props) => {
   }
   const renderSideContent = (activeTab: number) => {
     return (
-      <MaterialGroup groupList={SiderBarMap[activeTab].components} groupName={props.groupName} key={activeTab}/>
+      <MaterialGroup groupList={SiderBarMap[activeTab].components} groupName={props.groupName} key={activeTab} />
     )
   }
 
@@ -43,10 +43,10 @@ export const LeftSider: React.FC<IProps> = (props) => {
         })}
       </ul>
       <div
-        className={ activeTab > -1 ? 'sidebar-content sidebar-content-show' : 'sidebar-content'
+        className={activeTab > -1 ? 'sidebar-content sidebar-content-show' : 'sidebar-content'
         }
       >
-        { activeTab > -1  && renderSideContent(activeTab)}
+        {activeTab > -1 && renderSideContent(activeTab)}
       </div>
     </div>
   )

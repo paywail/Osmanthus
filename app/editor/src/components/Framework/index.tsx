@@ -1,12 +1,10 @@
 import { Editor, Frame, Element, Canvas } from "@craftjs/core";
-import { TopBar } from '../TopBar';
-import { MaterialGroup } from './comonents/MaterialList/MaterialGroup';
-import { Container } from "./comonents/Container";
-import { SettingsPanel } from '../SettingPannel';
 import * as _materials from '@osmanthus/materials';
+import { Container } from "./components/Container";
+import { SettingsPanel } from '../SettingPannel';
 import React from "react";
-import { EmptySetter } from "./comonents/Empty";
-import { LeftSider } from "./comonents/LeftSider";
+import { Empty } from "./components/Empty";
+import { LeftSider } from "./components/LeftSide";
 
 
 const baseMaterials = Object.keys(_materials).map((key: any) => ({
@@ -16,7 +14,7 @@ const baseMaterials = Object.keys(_materials).map((key: any) => ({
 
 export const Framework = (props) => {
   return (
-    <Editor resolver={{ ..._materials, Container, EmptySetter }} >
+    <Editor resolver={{ ..._materials, Container, Empty }} >
       <LeftSider groupList={baseMaterials} groupName={'基础组件'} />
       <div
         id="__CasterViewPort__"
