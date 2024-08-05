@@ -1,10 +1,8 @@
-import { Editor, Frame, Element, Canvas } from "@craftjs/core";
 import * as _materials from '@osmanthus/materials';
-import { Container } from "./components/Container";
 import { SettingsPanel } from '../SettingPannel';
 import React from "react";
-import { Empty } from "./components/Empty";
 import { LeftSider } from "./components/LeftSide";
+import { DocumentNodes, EditorRootWrapper } from "./components/Container/index";
 
 
 const baseMaterials = Object.keys(_materials).map((key: any) => ({
@@ -14,29 +12,11 @@ const baseMaterials = Object.keys(_materials).map((key: any) => ({
 
 export const Framework = (props) => {
   return (
-    <Editor resolver={{ ..._materials, Container, Empty }} >
+    <EditorRootWrapper  >
       <LeftSider groupList={baseMaterials} groupName={'基础组件'} />
-      <div
-        id="__CasterViewPort__"
-        style={{
-          width: "100vw",
-          height: '100vh',
-        }}
-      >
-        <Frame {...props} >
-          <Canvas
-            canvas
-            is={Container}
-          // backgroundColor="#FFF"
-          // height="100%"
-          // width="100%"
-          >
-            <div>这是一个占位的div哈哈哈</div>
-          </Canvas>
-        </Frame>
-      </div>
+      <DocumentNodes />
       <SettingsPanel />
-    </Editor>
+    </EditorRootWrapper>
   )
 }
 
