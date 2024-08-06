@@ -1,7 +1,9 @@
 import React from "react";
 import { useNode } from "@craftjs/core";
 import type { UserComponent, UserComponentConfig } from '@craftjs/core'
-
+import _ from "lodash";
+import { isExpression, parseJsStrToLte } from "./utils";
+import { jsRuntime } from "./runtime";
 
 
 /** 物料类型 */
@@ -13,9 +15,20 @@ export type MaterialComponent = UserComponent
  */
 export function withMaterialNode<T = unknown>(WrapComponent: React.FunctionComponent<T>) {
   return function (props: any) {
-    const { connectors: { connect, drag } } = useNode()
+    const { connectors: { connect, drag } } = useNode();
+    const memoizedProps = React.useMemo(() => {
+      const cloneProps = _.cloneDeepWith(props, (value) => {
+        // vm run
+        if (value && typeof value === "string" && isExpression(value)) {
+          console.log(`执行代码： ${value} `, props)
+          debugger
+          return jsRuntime.execute(parseJsStrToLte(value), { props })?.value
+        }
+      })
+      return cloneProps
+    }, [props])
 
-    return <WrapComponent ref={(dom: HTMLElement) => connect(drag(dom))} {...props} />
+    return <WrapComponent ref={(dom: HTMLElement) => connect(drag(dom))} {...memoizedProps} />
   }
 }
 /**
