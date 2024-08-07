@@ -6,7 +6,7 @@ import { Editor, Frame, Element } from "@craftjs/core";
 
 const Index = () => {
   return (
-    <div className='h-screen flex' >
+    <div className='flex m-4' >
       <Framework />
     </div>
   );

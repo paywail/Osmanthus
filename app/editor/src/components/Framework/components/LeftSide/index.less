@@ -2,9 +2,12 @@
   display: flex;
   min-width:40px;
   background: #FFF;
+  height: calc(100vh - 48px);
+
+
   &-widgets{
+    border: 2px solid #ebebeb;
     width: 48px;
-    height: calc(100vh - 48px);
 
     li{
       list-style: 0 none;
@@ -39,15 +42,10 @@
 
 .sidebar-content{
   display: block;
-  // position:absolute;
-  top:0;
-  left:40px;
+  border: 2px solid #ebebeb;
   width:300px;
-  height:calc(100vh - 48px);
   background: #FFF;
-  border-left: 1px solid #EEE;
-  border-top: 1px solid #EEE;
-  box-shadow: 2px 2px 4px #E1E1E0;
+  margin: 0px 8px;
   &-show{
     display: block;
   }

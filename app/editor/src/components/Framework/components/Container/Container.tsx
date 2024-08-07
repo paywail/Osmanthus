@@ -1,5 +1,4 @@
 import React from "react";
-import { Paper } from "@material-ui/core";
 import { createReactMaterial } from "@osmanthus/core";
 
 const ContainerDefaultProps = {
@@ -10,9 +9,9 @@ const ContainerDefaultProps = {
 
 const Container = createReactMaterial(({ background, padding = 0, children }) => {
   return (
-    <Paper style={{ margin: "5px 0", background, padding: `${padding}px`, minHeight: '100px', minWidth: '100px' }}>
+    <div className="border-2" style={{ background, padding: `${padding}px`, minHeight: '100px', minWidth: '100px' }}>
       {children}
-    </Paper>
+    </div>
   )
 }, {
   props: ContainerDefaultProps,
