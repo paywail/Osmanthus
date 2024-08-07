@@ -18,7 +18,7 @@ export const DocumentNodes: React.FC<React.ComponentProps<typeof DocumentFrame>>
           height="100%"
           width="100%"
         >
-          <div>hahah占位符</div>
+
         </Canvas>
       </DocumentFrame>
     </div>

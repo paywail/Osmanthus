@@ -15,6 +15,9 @@ const Container = createReactMaterial(({ background, padding = 0, children }) =>
   )
 }, {
   props: ContainerDefaultProps,
+  custom: {
+    useCanvas: true,
+  },
   related: {
   }
 })

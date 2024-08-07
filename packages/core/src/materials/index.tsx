@@ -4,6 +4,7 @@ import type { UserComponent, UserComponentConfig } from '@craftjs/core'
 import _ from "lodash";
 import { isExpression, parseJsStrToLte } from "./utils";
 import { jsRuntime } from "./runtime";
+import { Empty } from "./empty";
 
 
 /** 物料类型 */
@@ -13,22 +14,25 @@ export type MaterialComponent = UserComponent
  * @param WrappedComponent  基础组件
  * @returns 返回一个函数组件
  */
-export function withMaterialNode<T = unknown>(WrapComponent: React.FunctionComponent<T>) {
-  return function (props: any) {
-    const { connectors: { connect, drag } } = useNode();
-    const memoizedProps = React.useMemo(() => {
-      const cloneProps = _.cloneDeepWith(props, (value) => {
-        // vm run
-        if (value && typeof value === "string" && isExpression(value)) {
-          console.log(`执行代码： ${value} `, props)
-          debugger
-          return jsRuntime.execute(parseJsStrToLte(value), { props })?.value
-        }
+export function withMaterialNode<T = unknown>(WrapComponent: React.FunctionComponent<any>) {
+  return function ({
+    children,
+    ...props
+  }: Record<string, any>) {
+    const { connectors: { connect, drag }, custom, name } = useNode((node) => {
+      return ({
+        custom: node.data.custom,
+        name: node.data.name.replaceAll('__', '')
       })
-      return cloneProps
-    }, [props])
+    });
 
-    return <WrapComponent ref={(dom: HTMLElement) => connect(drag(dom))} {...memoizedProps} />
+    return (<WrapComponent ref={(dom: HTMLElement) => connect(drag(dom))} {...props}>
+      {custom?.useCanvas ? (
+        <Empty name={name} >{children}</Empty>
+      ) : (
+        children
+      )}
+    </WrapComponent>)
   }
 }
 /**

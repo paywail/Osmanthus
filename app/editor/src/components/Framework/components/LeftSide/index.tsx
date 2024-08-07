@@ -32,7 +32,7 @@ export const LeftSider: React.FC<IProps> = (props) => {
   }
 
   return (
-    <div className='sidebar'>
+    <div className='sidebar mr-2'>
       <ul className="sidebar-widgets">
         {SiderBarMap.map((item, index) => {
           return (
