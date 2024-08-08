@@ -17,6 +17,13 @@ export const EditorRootWrapper: React.FC<any> = (props) => {
     <RootEditor
       {...props}
       resolver={resolver}
+      indicator={{
+        'success': '#2d9d78', // green
+        'error': '#e34850', // red
+        'style': { // custom CSS properties
+        },
+        'className': 'your-css-class' // custom CSS class
+      }}
     >
       {props.children}
     </RootEditor>

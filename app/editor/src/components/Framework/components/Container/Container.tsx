@@ -9,7 +9,7 @@ const ContainerDefaultProps = {
 
 const Container = createReactMaterial(({ background, padding = 0, children }) => {
   return (
-    <div className="border-2" style={{ background, padding: `${padding}px`, minHeight: '100px', minWidth: '100px' }}>
+    <div className="border-2 w-full h-full" style={{ background, padding: `${padding}px`, }}>
       {children}
     </div>
   )
@@ -21,9 +21,6 @@ const Container = createReactMaterial(({ background, padding = 0, children }) =>
   related: {
   }
 })
-
-
-
 
 
 export {

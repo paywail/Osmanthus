@@ -8,6 +8,6 @@ export default defineConfig((options) => ({
   sourcemap: true,
   clean: true,
   format: ["esm"],
-  external: ["react", "@craftjs/core", "lodash"],
+  external: ["react", "react-dom", "@craftjs/core", "zustand", "antd", "lodash"],
   dts: true,
 }))

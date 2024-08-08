@@ -25,7 +25,6 @@ export const Empty: React.FC<EmptySetterProps> = ({
         width: "100%",
         paddingBlock: 12,
         paddingInline: 24,
-        background: theme.getDesignToken().colorBorderSecondary,
         gap: 4,
       }}
     >
