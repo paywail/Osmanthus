@@ -36,7 +36,7 @@ export const Text = createReactMaterial(({ text, fontSize }) => {
     text: "Hi",
     fontSize: 20
   },
-  displayName: "按钮",
+  displayName: "文本",
   related: {
     icon: () => <img height="100%" width="100%" src={textIcon} />,
     settings: TextSettings

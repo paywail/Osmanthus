@@ -19,7 +19,7 @@ export const Button = createReactMaterial(
     displayName: "按钮",
     props: {
       size: "small",
-      text: "freejs:props.size"
+      text: "默认按钮"
     },
     related: {
       settings: ButtonSettings,

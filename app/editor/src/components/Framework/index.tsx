@@ -3,7 +3,8 @@ import { SettingsPanel } from '../SettingPannel';
 import React from "react";
 import { LeftSider } from "./components/LeftSide";
 import { DocumentNodes, EditorRootWrapper } from "./components/Container/index";
-
+import { Editor, Frame, Element } from "@craftjs/core";
+import { Container } from './Container';
 
 const baseMaterials = Object.keys(_materials).map((key: any) => ({
   key, 
