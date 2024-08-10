@@ -5,8 +5,8 @@ import TextSettings from "./setting";
 import { createReactMaterial } from '@osmanthus/core';
 import { textIcon } from "@/assets/icon";
 
-export const Text = createReactMaterial(({ text, fontSize }) => {
-  const { connectors: { connect, drag }, actions: { setProp }, hasSelectedNode, hasDraggedNode } = useNode((state) => {
+export const Text = createReactMaterial(({ text, fontSize }, ref) => {
+  const { actions: { setProp }, hasSelectedNode, hasDraggedNode } = useNode((state) => {
     return {
       hasSelectedNode: state.events.selected,
       hasDraggedNode: state.events.dragged,
@@ -17,7 +17,7 @@ export const Text = createReactMaterial(({ text, fontSize }) => {
 
   useEffect(() => { !hasSelectedNode && setEdit(false) }, [hasSelectedNode]);
   return (
-    <div ref={ref => connect(drag(ref))} onClick={() => setEdit(true)} >
+    <div ref={ref} onClick={() => setEdit(true)} >
       <ContentEditable
         disabled={!edit}
         html={text}
@@ -33,7 +33,7 @@ export const Text = createReactMaterial(({ text, fontSize }) => {
   )
 }, {
   props: {
-    text: "Hi",
+    text: "Hello World!!!",
     fontSize: 20
   },
   displayName: "文本",

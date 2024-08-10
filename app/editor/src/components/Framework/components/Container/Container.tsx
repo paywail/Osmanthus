@@ -7,36 +7,22 @@ const ContainerDefaultProps = {
   padding: 3
 };
 
-const Container = ({ background, padding, children, ...props }) => {
-  const {
-    connectors: { connect, drag },
-  } = useNode();
+
+
+const Container = createReactMaterial(({ background, padding = 0, children }, ref) => {
   return (
-    <div
-      {...props}
-      ref={(ref) => connect(drag(ref))}
-      className="border-2 w-full h-full"
-      style={{ background, padding: `${padding}px`, }}
-    >
+    <div className="border-2 w-full h-full" style={{ background, padding: `${padding}px`, }} ref={ref}>
       {children}
     </div>
-  );
-};
-
-// const Container = createReactMaterial(({ background, padding = 0, children }) => {
-//   return (
-//     <div className="border-2 w-full h-full" style={{ background, padding: `${padding}px`, }}>
-//       {children}
-//     </div>
-//   )
-// }, {
-//   props: ContainerDefaultProps,
-//   custom: {
-//     useCanvas: true,
-//   },
-//   related: {
-//   }
-// })
+  )
+}, {
+  props: ContainerDefaultProps,
+  custom: {
+    useCanvas: true,
+  },
+  related: {
+  }
+})
 
 
 export {
