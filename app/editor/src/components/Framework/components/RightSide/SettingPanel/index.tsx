@@ -23,7 +23,7 @@ export const SettingsPanel = () => {
 
   return (
     selected ?
-      <div className='border-2 p-4' style={{ height: 'calc(100vh - 48px)' }}>
+      <div className='p-4'>
         {
           selected.settings && React.createElement(selected.settings)
         }

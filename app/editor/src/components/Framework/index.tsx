@@ -1,10 +1,10 @@
 import * as _materials from '@osmanthus/materials';
-import { SettingsPanel } from '../SettingPannel';
+// import { SettingsPanel } from './components/RightSide/SettingPannel';
 import React from "react";
 import { LeftSider } from "./components/LeftSide";
 import { DocumentNodes, EditorRootWrapper } from "./components/Container/index";
-import { Editor, Frame, Element } from "@craftjs/core";
-import { Container } from './Container';
+import RightSide from './components/RightSide';
+
 
 const baseMaterials = Object.keys(_materials).map((key: any) => ({
   key, 
@@ -16,7 +16,7 @@ export const Framework = (props) => {
     <EditorRootWrapper  >
       <LeftSider groupList={baseMaterials} groupName={'基础组件'} />
       <DocumentNodes />
-      <SettingsPanel />
+      <RightSide />
     </EditorRootWrapper>
   )
 }
