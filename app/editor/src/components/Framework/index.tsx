@@ -7,17 +7,22 @@ import RightSide from './components/RightSide';
 
 
 const baseMaterials = Object.keys(_materials).map((key: any) => ({
-  key, 
+  key,
   component: _materials[key as keyof typeof _materials]
 }));
 
-export const Framework = (props) => {
+export const Framework = (props, ref) => {
+
   return (
-    <EditorRootWrapper  >
-      <LeftSider groupList={baseMaterials} groupName={'基础组件'} />
-      <DocumentNodes />
-      <RightSide />
+    <EditorRootWrapper>
+      {props.children ? (props.children) : (
+        <>
+          <LeftSider groupList={baseMaterials} groupName={'基础组件'} />
+          <DocumentNodes />
+          <RightSide /></>
+      )}
     </EditorRootWrapper>
   )
 }
+// export default React.forwardRef(Framework);
 

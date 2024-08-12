@@ -17,7 +17,6 @@ export const TopBar = () => {
   const copy2Json = () => {
     const pageSchema = query.serialize();
     const compressSchema = lz.encodeBase64(lz.compress(pageSchema))
-    console.log('test-------->pageSchema, ----->', pageSchema, compressSchema);
 
     copy(compressSchema);
     notification.success({ message: '复制成功' })
@@ -33,11 +32,18 @@ export const TopBar = () => {
       const json = lz.decompress(lz.decodeBase64(stateToLoad));
       actions.deserialize(json);
     }
-
+  }
+  const handlePreviewEvt = () => {
+    // 获取当前schema
+    const schema = query.serialize()
+    const previewId = "uid-" + new Date().getTime()
+    sessionStorage.setItem(previewId, schema)
+    window.open(`/preview/${previewId}`, '_blank')
   }
   return (
     <div className="flex">
       <Space className="ml-auto">
+        <Button onClick={handlePreviewEvt}>预览</Button>
         <Button onClick={copy2Json}>复制</Button>
         <Button onClick={() => { setDialogOpen(true) }} >加载</Button>
       </Space>
