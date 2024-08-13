@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Framework } from '../../components/Framework';
+import { Framework } from '../../components';
 import { DocumentNodes } from '@/components/Framework/components/Container';
 import { useParams } from 'react-router-dom';
 import { MountRef } from './mount-ref';

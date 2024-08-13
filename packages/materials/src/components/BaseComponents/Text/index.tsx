@@ -17,7 +17,11 @@ export const Text = createReactMaterial(({ text, fontSize }, ref) => {
 
   useEffect(() => { !hasSelectedNode && setEdit(false) }, [hasSelectedNode]);
   return (
-    <div ref={ref} onClick={() => setEdit(true)} >
+    <div ref={ref} onClick={() => {
+      if (hasSelectedNode) {
+        setEdit(true);
+      }
+    }} >
       <ContentEditable
         disabled={!edit}
         html={text}

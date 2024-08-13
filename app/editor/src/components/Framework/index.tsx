@@ -11,11 +11,11 @@ const baseMaterials = Object.keys(_materials).map((key: any) => ({
   component: _materials[key as keyof typeof _materials]
 }));
 
-export const Framework = (props, ref) => {
+const Framework = ({ children, ...props }, ref) => {
 
   return (
-    <EditorRootWrapper>
-      {props.children ? (props.children) : (
+    <EditorRootWrapper {...props}>
+      {children ? (children) : (
         <>
           <LeftSider groupList={baseMaterials} groupName={'基础组件'} />
           <DocumentNodes />
@@ -24,5 +24,5 @@ export const Framework = (props, ref) => {
     </EditorRootWrapper>
   )
 }
-// export default React.forwardRef(Framework);
+export default React.forwardRef(Framework);
 
