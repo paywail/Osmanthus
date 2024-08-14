@@ -5,7 +5,6 @@ import { LeftSider } from "./components/LeftSide";
 import { DocumentNodes, EditorRootWrapper } from "./components/Container/index";
 import RightSide from './components/RightSide';
 
-
 const baseMaterials = Object.keys(_materials).map((key: any) => ({
   key,
   component: _materials[key as keyof typeof _materials]

@@ -17,7 +17,8 @@ export const LeftSider: React.FC<IProps> = (props) => {
       name: '组件',
       components: props.groupList,
       icon: SmallDashOutlined,
-    }
+    },
+
   ];
   const onSideEnter = (activeIndex: number) => {
     setActiveTab(activeIndex);
