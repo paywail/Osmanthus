@@ -4,6 +4,7 @@ import _ from 'lodash';
 import './index.less';
 import { MaterialProps } from "../MaterialList/types";
 import { MaterialGroup } from "../MaterialList/MaterialGroup";
+import { HistoryList } from "../HistoryList";
 
 interface IProps {
   groupList: MaterialProps["components"];
@@ -18,18 +19,30 @@ export const LeftSider: React.FC<IProps> = (props) => {
       components: props.groupList,
       icon: SmallDashOutlined,
     },
+    {
+      id: '2',
+      name: '历史',
+      components: <HistoryList />,
+      icon: SmallDashOutlined,
+    }
 
   ];
-  const onSideEnter = (activeIndex: number) => {
-    setActiveTab(activeIndex);
-  }
-  const onSideLeave = () => {
-    setActiveTab(-1);
-  }
+  // const onSideEnter = (activeIndex: number) => {
+  //   setActiveTab(activeIndex);
+  // }
+  // const onSideLeave = () => {
+  //   setActiveTab(-1);
+  // }
   const renderSideContent = (activeTab: number) => {
-    return (
-      <MaterialGroup groupList={SiderBarMap[activeTab].components} groupName={props.groupName} key={activeTab} />
-    )
+    if (activeTab === 0) {
+      return (
+        <MaterialGroup groupList={SiderBarMap[activeTab].components} groupName={props.groupName} key={activeTab} />
+      )
+    }
+    if (activeTab === 1) {
+      return SiderBarMap[activeTab].components
+    }
+
   }
 
   return (
