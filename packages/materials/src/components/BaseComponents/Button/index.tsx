@@ -23,8 +23,19 @@ export const Button = createReactMaterial(
     },
     related: {
       settings: ButtonSettings,
-      icon: () => <img height="100%" width="100%" src={buttonIcon} />
+      icon: () => <img height="100%" width="100%" src={buttonIcon} />,
+
     },
+    info: {
+      actions: [{
+        name: '点击',
+        code: 'click',
+        items: [{
+          dataIndex: 'url',
+          title: '跳转地址',
+        }]
+      }]
+    }
   },
 );
 
