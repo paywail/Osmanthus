@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Button,
   Flex,
@@ -6,6 +6,7 @@ import {
   ConfigProvider,
   Form,
   Input,
+  Select,
 } from "antd";
 import {
   CaretDownOutlined,
@@ -18,6 +19,7 @@ import _, { merge } from "lodash";
 import { useEditor } from "@craftjs/core";
 import { useDebounceFn } from "ahooks";
 import { nanoid } from "nanoid";
+import EventModal from './components/EventModal';
 
 export interface IEventType {
   name?: string;
@@ -30,7 +32,8 @@ const defaultCode = `function () {
 }`;
 
 export const EventsPanel = () => {
-  const [form] = Form.useForm()
+  const [form] = Form.useForm();
+  const [eventList, setEventList] = useState<Array<{ code: string; name: string }>>([]);
 
   const {
     actions,
@@ -65,11 +68,18 @@ export const EventsPanel = () => {
 
   // 当前编辑的组件发生改变，selected.id副作用更新了
   useEffect(() => {
-    console.log('test-------->selected, ----->', selected);
     if (selected && selected.id) {
+      if (selected.actions.length) {
+        try {
+          const events = selected.actions.map(e => ({ ...e }));
+          setEventList(events);
+        } catch (error) {
+
+        }
+      }
 
       /** 切换组件清除setter配置 */
-      form.resetFields()
+      form.resetFields();
 
 
       /** 设置新组件内容属性配置 */
@@ -77,7 +87,7 @@ export const EventsPanel = () => {
       //   events,
       // })
     }
-  }, [selected.id])
+  }, [selected.id]);
 
   return (
     <ConfigProvider
@@ -151,15 +161,30 @@ export const EventsPanel = () => {
                               <Form.Item name={[field.name, 'id']} hidden>
                                 <Input disabled />
                               </Form.Item>
-                              <Flex gap={8} flex="0 0 auto">
-                                <Form.Item noStyle name={[field.name, "fn"]}>
-                                  {/* <ExpressionModal
-                                    defaultCode={defaultCode}
-                                    trigger={<Button icon={<EditOutlined />} />}
-                                  /> */}
-                                </Form.Item>
-                                <Button icon={<CloseOutlined />}></Button>
-                              </Flex>
+                              <Form.Item name={[field.name, 'actionCode']} style={{ width: '100px' }}>
+                                <Select >
+                                  {eventList.map(e => {
+                                    return (
+                                      <Select.Option key={e.code} value={e.code}>
+                                        {e.name}
+                                      </Select.Option>
+                                    )
+                                  })}
+                                </Select>
+                              </Form.Item>
+                              <Form.Item shouldUpdate>
+                                {({ getFieldValue }) => {
+                                  const actionsCode = getFieldValue(['events', index, 'actionCode']);
+                                  if (actionsCode) {
+                                    const item = eventList.find(e => e.code === actionsCode);
+                                    return (<Form.Item noStyle name={[field.name, "options"]}>
+                                      <EventModal
+                                        options={item.items}
+                                      />
+                                    </Form.Item>)
+                                  }
+                                }}
+                              </Form.Item>
                             </Flex>
                           ))}
                           <Flex justify="center" >

@@ -8,8 +8,15 @@ import { buttonIcon } from '@/assets/icon'
 
 export const Button = createReactMaterial(
   (props: ButtonProps, ref: any) => {
+    console.log('test-------->props, ----->', props);
+    const events = props.__events__ || [];
+    const handleClick = () => {
+      if (events.length) {
+        window.open(, '_blank');
+      }
+    }
     return (
-      <MaterialButton ref={ref} {...props} >
+      <MaterialButton ref={ref} {...props} onClick={handleClick}>
         {props.children || props.text || '默认按钮'}
       </MaterialButton>
 
