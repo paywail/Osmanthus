@@ -31,7 +31,7 @@ export default function EventModal(
   return <>
     <Button icon={<EditOutlined />} onClick={() => setOpen(true)} />
     <Modal open={open} destroyOnClose onCancel={onCancel} onOk={onOk}>
-      <BetaSchemaForm columns={options} formRef={formRef} />
+      <BetaSchemaForm columns={options} formRef={formRef} submitter={false} />
     </Modal>
   </>
 }
