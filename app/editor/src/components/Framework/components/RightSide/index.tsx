@@ -26,7 +26,7 @@ export default function RightSide() {
   ];
 
   return (
-    <div className='w-1/4 border-2 p-2' style={{ height: 'calc(100vh - 48px)' }}>
+    <div className='border-2 p-2'>
       <div>工具栏</div>
       <TopBar />
       <Tabs defaultActiveKey="1" items={items} />

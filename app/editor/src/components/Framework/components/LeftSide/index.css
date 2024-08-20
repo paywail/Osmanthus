@@ -2,7 +2,6 @@
   display: flex;
   min-width: 40px;
   background: #FFF;
-  height: calc(100vh - 48px);
 }
 .sidebar-widgets {
   border: 2px solid #ebebeb;
@@ -42,10 +41,8 @@
 }
 .sidebar-content {
   display: block;
-  border: 2px solid #ebebeb;
   width: 300px;
   background: #FFF;
-  margin: 0px 6px;
 }
 .sidebar-content-show {
   display: block;

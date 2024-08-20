@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { SmallDashOutlined } from "@ant-design/icons";
+import { BranchesOutlined, ProductOutlined, SmallDashOutlined } from "@ant-design/icons";
 import _ from 'lodash';
 import './index.less';
 import { MaterialProps } from "../MaterialList/types";
 import { MaterialGroup } from "../MaterialList/MaterialGroup";
 import { HistoryList } from "../HistoryList";
+import cx from 'classnames'
 
 interface IProps {
   groupList: MaterialProps["components"];
@@ -17,22 +18,17 @@ export const LeftSider: React.FC<IProps> = (props) => {
       id: '1',
       name: '组件',
       components: props.groupList,
-      icon: SmallDashOutlined,
+      icon: <ProductOutlined />,
     },
     {
       id: '2',
       name: '历史',
       components: <HistoryList />,
-      icon: SmallDashOutlined,
+      icon: <BranchesOutlined />,
     }
 
   ];
-  // const onSideEnter = (activeIndex: number) => {
-  //   setActiveTab(activeIndex);
-  // }
-  // const onSideLeave = () => {
-  //   setActiveTab(-1);
-  // }
+
   const renderSideContent = (activeTab: number) => {
     if (activeTab === 0) {
       return (
@@ -46,21 +42,23 @@ export const LeftSider: React.FC<IProps> = (props) => {
   }
 
   return (
-    <div className='sidebar mr-2 w-1/4'>
-      <ul className="sidebar-widgets">
+    <div className='flex mr-4 h-[100%]'>
+      <ul className="min-w-12 pt-4 border-r-2">
         {SiderBarMap.map((item, index) => {
           return (
-            <li key={item.id} onClick={() => setActiveTab(index)}>
-              <span>{item.name}</span>
+            <li
+              key={item.id}
+              className={cx("mb-4 cursor-pointer flex items-center justify-center", { 'bg-zinc-200': activeTab === index })}
+              onClick={() => setActiveTab(index)}
+            >
+              <span style={{ fontSize: '16px' }}>{item.icon}</span>
             </li>
           )
         })}
       </ul>
-      <div
-        className={activeTab > -1 ? 'sidebar-content sidebar-content-show' : 'sidebar-content'
-        }
+      <div className={'sidebar-content sidebar-content-show'}
       >
-        {activeTab > -1 && renderSideContent(activeTab)}
+        {renderSideContent(activeTab)}
       </div>
     </div>
   )

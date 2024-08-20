@@ -11,7 +11,7 @@ const ContainerDefaultProps = {
 
 const Container = createReactMaterial(({ background, padding = 0, children }, ref) => {
   return (
-    <div className="border-2 w-full h-full" style={{ background, padding: `${padding}px`, }} ref={ref}>
+    <div className=" w-full h-full" style={{ background, padding: `${padding}px`, }} ref={ref}>
       {children}
     </div>
   )

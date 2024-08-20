@@ -4,7 +4,7 @@ import { Framework } from '@/components/index'
 
 const Editor = () => {
   return (
-    <div className='flex m-4' >
+    <div className='flex'>
       <Framework />
     </div>
   );

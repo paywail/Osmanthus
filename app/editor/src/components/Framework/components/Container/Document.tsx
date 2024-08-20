@@ -8,7 +8,7 @@ export const DocumentNodes: React.FC<React.ComponentProps<typeof DocumentFrame>>
   return (
     <div
       id="__CasterViewPort__"
-      className="w-screen mr-4"
+      className="h-screen mr-4"
     >
       <DocumentFrame {...props} >
         <Canvas

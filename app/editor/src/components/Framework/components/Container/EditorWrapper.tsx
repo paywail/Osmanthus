@@ -22,7 +22,6 @@ export const EditorRootWrapper: React.FC<any> = (props) => {
         'error': '#e34850', // red
         'style': { // custom CSS properties
         },
-        'className': 'your-css-class' // custom CSS class
       }}
     >
       {props.children}
