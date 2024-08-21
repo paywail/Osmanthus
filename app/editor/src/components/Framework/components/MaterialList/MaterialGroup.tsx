@@ -20,7 +20,7 @@ export const MaterialGroup: React.FC<IProps> = (props) => {
   }
 
   return (
-    <Flex vertical gap={12}>
+    <Flex vertical gap={12} className="p-3">
       <Flex justify="flex-start" gap={6}>
         <Typography.Text type="secondary">{props.groupName}</Typography.Text>
         {isEmpty ? null : (
