@@ -36,7 +36,7 @@ const List: React.FC<{
                   <Typography.Text>{item.createTime}</Typography.Text>
                   <Space>
                     <Typography.Link onClick={() => handlePreviewEvt(item)} >预览</Typography.Link>
-                    <Typography.Text type="danger" onClick={() => handleLocalHistoryDelete(item)}  >删除</Typography.Text>
+                    <Typography.Text type="danger" onClick={() => handleLocalHistoryDelete(item)} className="cursor-pointer" >删除</Typography.Text>
                   </Space>
                 </Space>
               </Card>
