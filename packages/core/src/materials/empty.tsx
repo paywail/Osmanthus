@@ -23,9 +23,6 @@ export const Empty: React.FC<EmptySetterProps> = ({
       style={{
         height: "100%",
         width: "100%",
-        paddingBlock: 12,
-        paddingInline: 24,
-        gap: 4,
       }}
     >
       <Typography.Text type="secondary">

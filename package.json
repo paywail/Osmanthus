@@ -21,6 +21,7 @@
   },
   "packageManager": "pnpm@9.2.0",
   "dependencies": {
+    "@ant-design/cssinjs": "^1.21.1",
     "@ant-design/icons": "^5.4.0",
     "@ant-design/pro-components": "^2.7.15",
     "@craftjs/core": "^0.2.8",
