@@ -24,7 +24,7 @@ export const IFrameWrapper: React.FC<IFrameProps> = (props) => {
           {/* 可以消除iframe的滚动条 */}
           <link
             type="text/css"
-            href="https://cdn.skypack.dev/sanitize.css"
+            href="https://cdn.jsdelivr.net/npm/sanitize.css"
             rel="stylesheet"
           />
           <style>
