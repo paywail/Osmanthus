@@ -21,6 +21,12 @@ export const IFrameWrapper: React.FC<IFrameProps> = (props) => {
       className={styles.wrapper}
       head={
         <>
+          {/* 可以消除iframe的滚动条 */}
+          <link
+            type="text/css"
+            href="https://cdn.skypack.dev/sanitize.css"
+            rel="stylesheet"
+          />
           <style>
             {`
               .editor-component-active {
