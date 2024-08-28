@@ -8,11 +8,10 @@ import { buttonIcon } from '@/assets/icon'
 
 export const Button = createReactMaterial(
   (props: ButtonProps, ref: any) => {
-    console.log('test-------->props, ----->', props);
     const events = props.__events__ || [];
     const handleClick = () => {
       if (events.length) {
-        window.open(, '_blank');
+        window.open(events[0].options.url, '_blank');
       }
     }
     return (

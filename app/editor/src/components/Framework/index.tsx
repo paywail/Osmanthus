@@ -24,7 +24,7 @@ const Framework = ({ children, ...props }, ref) => {
             <Allotment.Pane preferredSize={240} maxSize={400} minSize={200}>
               <LeftSider groupList={baseMaterials} groupName={'基础组件'} />
             </Allotment.Pane>
-            <Allotment.Pane>
+            <Allotment.Pane className='p-4 bg-zinc-50'>
               <IFrameWrapper >
                 <DocumentNodes />
               </IFrameWrapper>

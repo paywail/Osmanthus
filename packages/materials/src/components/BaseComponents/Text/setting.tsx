@@ -18,7 +18,7 @@ const TextSettings = () => {
       onValuesChange={handleChange}
       style={{ maxWidth: 600 }}
     >
-      <Form.Item name="text" label="按钮名字" >
+      <Form.Item name="text" label="文本内容" >
         <Input />
       </Form.Item>
       <Form.Item name="fontSize" label="字体大小" >
